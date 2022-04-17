@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel" value="2"/>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/RShbz/kos-domain-and-kos-microservices.git"/>
+		<item value="git://github.com/RShbz/kos-domain-and-kos-microservices.git"/>
+		<item value="https://github.com/omerKarabas/library-system.git"/>
+	</list>
+	<list key="EGit.KnownHosts">
+		<item value="bitbucket.org"/>
+		<item value="git.eclipse.org"/>
+		<item value="github.com"/>
+	</list>
+	<section name="GitImportWizard">
+	</section>
+</section>

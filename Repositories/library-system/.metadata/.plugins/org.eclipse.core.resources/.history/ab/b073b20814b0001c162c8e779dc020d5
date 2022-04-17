@@ -1,0 +1,41 @@
+package com.sahabt.admincrud.config;
+
+import org.modelmapper.Converter;
+import org.springframework.context.annotation.Configuration;
+
+import com.sahabt.admincrud.dto.request.Address;
+import com.sahabt.admincrud.dto.request.Email;
+import com.sahabt.admincrud.dto.request.HireUserRequest;
+import com.sahabt.admincrud.dto.request.Phone;
+import com.sahabt.library.domain.user.User;
+
+@Configuration
+public class ModelMapperConfig {
+
+	private static final Converter<HireUserRequest, User> HIRE_USER_REQUEST_TO_USER = (context) -> {
+		var request = context.getSource();
+		var email = Email.of(request.getContact().getEmail().getEmail(),
+				request.getContact().getEmail().getEmailType());
+		var phone = Phone.of(request.getContact().getPhone().getPhoneNumber(),
+				request.getContact().getPhone().getPhoneType());
+		var address = Address.of(request.getContact().getAddress().getApartmentNumber(),
+				request.getContact().getAddress().getBuldingNumber(), 
+				request.getContact().getAddress().getCity(),
+				request.getContact().getAddress().getCountry(), 
+				request.getContact().getAddress().getDistrict(),
+				request.getContact().getAddress().getNeighbourdhood(),
+				request.getContact().getAddress().getAddressType());
+
+		return new User.Builder().identityNo(request.getIdentityNo())
+				.fullName(request.getFullName().getFirstName(), request.getFullName().getLastName())
+				.birthDate(request.getBirthDate().getDay(), request.getBirthDate().getMount(),
+						request.getBirthDate().getYear())
+				.contact(
+						email, phone, address
+				)
+				
+				.build();
+
+	};
+
+}

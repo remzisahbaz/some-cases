@@ -1,0 +1,5 @@
+package com.sahabt.kosbookcrud.repository;
+
+public class BookDocumentRepository {
+
+}

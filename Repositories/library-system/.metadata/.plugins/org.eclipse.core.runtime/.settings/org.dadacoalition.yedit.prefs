@@ -1,0 +1,12 @@
+colorAliasPreferences=208,208,208
+colorAnchorPreferences=208,208,208
+colorCommentPreference=0,187,0
+colorConstantPreferences=51,204,255
+colorDefaultPreference=208,208,208
+colorDocumentPreference=208,208,208
+colorFlowCharacterPreferences=208,208,208
+colorKeyPreference=51,204,255
+colorScalarPreference=250,128,114
+colorTagPropertyPreferences=208,208,208
+eclipse.preferences.version=1
+overriddenByCSS=,colorDocumentPreference,colorDefaultPreference,colorTagPropertyPreferences,colorKeyPreference,colorFlowCharacterPreferences,colorAliasPreferences,colorAnchorPreferences,colorCommentPreference,colorConstantPreferences,colorScalarPreference,

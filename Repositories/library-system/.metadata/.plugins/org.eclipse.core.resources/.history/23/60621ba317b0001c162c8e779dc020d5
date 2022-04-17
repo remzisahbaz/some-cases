@@ -1,0 +1,15 @@
+package com.sahabt.admincrud.document;
+
+
+
+public class UserDocument {
+
+
+	private String identityNo;
+	private FullName fullName;
+	private BirthDate birthDate;
+	private Photo photo;
+	private Status status; // Status include main role as teacher, student
+	private Contact contact;
+	private Faculty faculty;
+}

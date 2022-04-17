@@ -1,0 +1,48 @@
+package com.sahabt.library.applications.bussiness;
+
+import java.util.Optional;
+
+import com.sahabt.library.applications.UserApplication;
+import com.sahabt.library.applications.bussiness.event.user.UserEvent;
+import com.sahabt.library.domain.user.IdentityNo;
+import com.sahabt.library.domain.user.User;
+import com.sahabt.library.infra.EventPublisher;
+import com.sahabt.library.repository.UserRepository;
+
+public class StandardUserApplication implements UserApplication {
+
+	private UserRepository userRepository;
+	private EventPublisher eventPublisher; 
+
+	public StandardUserApplication(UserRepository userRepository, UserEvent userEvent) {
+		this.userRepository = userRepository;
+		this.userEvent = userEvent;
+	}
+
+	@Override
+	public Optional<User> addUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<User> removeUser(IdentityNo identityNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<User> editUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<User> getInformationUser(IdentityNo identityNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+}

@@ -1,0 +1,18 @@
+package com.sahabt.admincrud.document;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import nonapi.io.github.classgraph.json.Id;
+
+@Document
+public class UserDocument {
+
+	@Id
+	private String identityNo;
+	private FullName fullName;
+	private BirthDate birthDate;
+	private Photo photo;
+	private Status status; // Status include main role as teacher, student
+	private Contact contact;
+	private Faculty faculty;
+}

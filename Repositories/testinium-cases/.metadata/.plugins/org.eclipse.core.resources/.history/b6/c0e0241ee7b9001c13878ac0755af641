@@ -1,0 +1,91 @@
+/**
+ * 
+ */
+package com.testinium.config;
+
+import org.modelmapper.Converter;
+import org.modelmapper.ModelMapper;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.testinium.dto.request.CourseRegistrationRequest;
+import com.testinium.dto.request.ResultsOfExamRequest;
+import com.testinium.dto.response.ResultsOfExamResponse;
+import com.testinium.entity.CourseRegistration;
+import com.testinium.entity.ResultsOfExam;
+
+/**
+ * @author sahabt
+ *
+ */
+@Configuration
+public class ModelMaperConfig {
+
+//	public static final Converter<CourseRegistrationRequest, CourseRegistration> CourseRegistrationRequest_To_CourseRegistration_Convert = (
+//			context) -> {
+//		var request = context.getSource();
+//		var coursereg = context.getDestination();
+//
+//		// coursereg.setCourse(request.getCourseCode());
+//
+//		return null;
+//	};
+
+	public static final Converter<ResultsOfExamRequest, ResultsOfExam> ResultOfExamRequest_To_ResultOfExam_Converted = (
+			context) -> {
+		var request = context.getSource();
+		//var result =  context.getDestination();
+
+		var result=new ResultsOfExam();
+		
+		result.setSecondExamResult(request.getFirstExamResult());
+		System.out.println("-----"+result.getSecondExamResult());
+		result.setFirstExamResult(request.getFirstExamResult());
+
+		result.setAvarage(
+
+				(request.getFirstExamResult() + request.getSecondExamResult()) / 2
+
+		);
+		if (result.getAvarage() >= 50) {
+
+			// passed the lesson of school
+			result.setStateOfResult(true);
+		} else {
+			// not passed the lesson of school
+			result.setStateOfResult(false);
+
+		}
+		
+		
+		return result;
+	};
+
+	public static final Converter<ResultsOfExam, ResultsOfExamResponse> ResultOfExam_To_ResultOfExamResponse_Converted = (
+			context) -> {
+		var result = context.getSource();
+		var response = new ResultsOfExamResponse();
+
+		response.setAvarage(response.getAvarage());
+		response.setFirstExamResult(response.getFirstExamResult());
+		response.setSecondExamResult(response.getSecondExamResult());
+		response.setStateOfResult(result.isStateOfResult());
+		response.setCourse(result.getCourse());
+
+		return response;
+	};
+
+	@Bean
+	public ModelMapper mapper() {
+
+		var modelm = new ModelMapper();
+		// modelm.addConverter(CourseRegistrationRequest_To_Convert_CourseRegistration,CourseRegistrationRequest.class,
+		// CourseRegistration.class);
+		modelm.addConverter(ResultOfExamRequest_To_ResultOfExam_Converted, ResultsOfExamRequest.class,
+				ResultsOfExam.class);
+		modelm.addConverter(ResultOfExam_To_ResultOfExamResponse_Converted, ResultsOfExam.class,
+				ResultsOfExamResponse.class);
+
+		return modelm;
+	}
+}

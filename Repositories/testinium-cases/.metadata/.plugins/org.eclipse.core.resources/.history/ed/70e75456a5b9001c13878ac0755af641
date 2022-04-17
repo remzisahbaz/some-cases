@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package com.testinium.service;
+
+import java.util.Optional;
+
+import com.testinium.dto.response.ResultsOfExamResponse;
+import com.testinium.entity.ResultsOfExam;
+
+/**
+ * @author Remzi ŞAHBAZ
+ *
+ */
+public interface ResultsOfExamService {
+
+	Optional<ResultsOfExamResponse> createResultsOfExam(ResultsOfExam courseRegistration);
+
+}

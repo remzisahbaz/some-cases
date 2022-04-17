@@ -1,0 +1,19 @@
+package com.demiroren.service;
+
+import java.util.Optional;
+
+import com.demiroren.dto.request.AddContactRequest;
+import com.demiroren.dto.response.AddContactResponse;
+
+/**
+ * @author Remzi ŞAHBAZ
+ *
+ */
+
+public interface ContactService {
+
+	 Optional<AddContactResponse> addContact(AddContactRequest request) ;
+	 Optional<AddContactResponse> getContact(String name,String lastName);
+	
+	
+}

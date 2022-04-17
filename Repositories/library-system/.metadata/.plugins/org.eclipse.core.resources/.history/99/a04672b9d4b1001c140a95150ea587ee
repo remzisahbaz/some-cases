@@ -1,0 +1,7 @@
+package com.sahabt.kosbookcrud.repository;
+
+import com.sahabt.kosbookcrud.document.BookDocument;
+
+public class BookDocumentRepository extends MongoRepository<BookDocument,String>{
+
+}

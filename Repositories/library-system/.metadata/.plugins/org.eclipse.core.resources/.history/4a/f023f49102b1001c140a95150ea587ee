@@ -1,0 +1,40 @@
+package com.sahabt.kosbookcrud.filter;
+
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+
+public class JwtFilter implements Filter {
+
+	private final Logger logger = LoggerFactory.getLogger(JwtFilter.class);
+
+	private String secret;
+	private UserDetailsService userDetailsService ;
+	
+	
+	
+	public JwtFilter(String secret, UserDetailsService userDetailsService) {
+		this.secret = secret;
+		this.userDetailsService = userDetailsService;
+	}
+
+
+
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		var authorizationValue=((HttpServletRequest)request).getHeader("Authorization");
+		logger.info("jwtFilter::doFilter() is running");
+	}
+
+}

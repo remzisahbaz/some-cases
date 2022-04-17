@@ -1,0 +1,5 @@
+package com.sahabt.admincrud.document;
+
+public class UserDocument {
+
+}

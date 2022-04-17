@@ -1,0 +1,5 @@
+FROM openjdk:17-oracle  		
+ARG JAR_FILE=*.jar
+CPY ${JAR_FILE} testinium-case2.jar
+EXPOSE 1071						
+ENTRYPOINT ["java","-jar","/testinium-case2.jar"]

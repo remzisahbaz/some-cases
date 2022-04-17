@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.testinium.dto.response;
+
+/**
+ * @author sahabt
+ *
+ */
+public class AllStudentResponse {
+
+}

@@ -1,0 +1,98 @@
+package com.demiroren.service.business;
+
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
+
+import com.demiroren.dto.request.AddContactRequest;
+import com.demiroren.dto.response.AddContactResponse;
+import com.demiroren.dto.response.getContactResponse;
+import com.demiroren.entity.Contact;
+import com.demiroren.entity.Phone;
+import com.demiroren.repository.ContactRepository;
+import com.demiroren.repository.PhoneRepository;
+import com.demiroren.service.ContactService;
+
+/**
+ * @author Remzi ŞAHBAZ
+ *
+ */
+@Service
+public class StandartContactService implements ContactService {
+
+	private ModelMapper modelmapper;
+	private ContactRepository contactRepository;
+	private PhoneRepository phoneRepository;
+
+	/**
+	 * @param modelmapper
+	 * @param contactRepository
+	 * @param phoneRepository
+	 */
+	public StandartContactService(ModelMapper modelmapper, ContactRepository contactRepository,
+			PhoneRepository phoneRepository) {
+		this.modelmapper = modelmapper;
+		this.contactRepository = contactRepository;
+		this.phoneRepository = phoneRepository;
+	}
+
+	@Override
+	public Optional<AddContactResponse> addContact(AddContactRequest request) {
+
+		var existContact = contactRepository.findByNameAndLastname(request.getName(), request.getLastName());
+
+		if (existContact != null) {
+
+			var existPhone = existContact.get().getPhone().stream().map(p -> {
+
+				if (p.getValue() == request.getPhone()) {
+					return true;
+				}
+				return Optional.empty();
+			});
+			if (existPhone.toList().isEmpty()) {
+				var phone = new Phone();
+				phone.setValue(request.getPhone());
+				Set<Phone> newPhones = new HashSet<Phone>();
+				// old phones
+				newPhones.addAll(existContact.get().getPhone());
+				// new phone
+				newPhones.add(phone);
+
+				existContact.get().setPhone(newPhones);
+
+				return Optional.of(modelmapper.map(existContact, AddContactResponse.class));
+			}
+
+		}
+
+		else {
+			try {
+				var newContact = contactRepository.save(modelmapper.map(request, Contact.class));
+
+				// System.out.println(modelmapper.map(newContact, AddContactResponse.class));
+				return Optional.of(modelmapper.map(newContact, AddContactResponse.class));
+
+			} catch (Exception e) {
+				throw new IllegalAccessError();
+			}
+		}
+
+		return Optional.empty();
+	}
+
+	@Override
+	public Optional<getContactResponse> getContact(String name, String lastName) {
+		var existContact = contactRepository.findByNameAndLastname(name, lastName);
+		if (existContact != null) {
+
+			return Optional.of(modelmapper.map(existContact, getContactResponse.class));
+
+		}
+		return Optional.empty();
+	}
+
+}

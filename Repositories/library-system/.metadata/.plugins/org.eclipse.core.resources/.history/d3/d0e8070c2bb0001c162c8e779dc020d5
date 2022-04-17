@@ -1,0 +1,5 @@
+package com.sahabt.admincrud.adapter;
+
+public class UserRepositorySpringDataMongoAdapter {
+
+}

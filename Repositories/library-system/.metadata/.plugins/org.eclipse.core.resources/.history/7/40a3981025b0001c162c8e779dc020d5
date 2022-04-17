@@ -1,0 +1,15 @@
+package com.sahabt.admincrud.service;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
+
+import com.sahabt.library.applications.UserApplication;
+
+@Service
+public class UserService {
+
+	private UserApplication userApplication;
+	private ModelMapper modelMapper;
+	
+
+}

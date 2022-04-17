@@ -1,0 +1,23 @@
+/**
+ * 
+ */
+package com.demiroren.repository;
+
+import javax.swing.text.html.Option;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.demiroren.entity.Contact;
+
+/**
+ * @author Remzi ŞAHBAZ
+ *
+ */
+@Repository
+public interface ContactRepository extends JpaRepository<Contact, Long>
+{
+
+	 Contact findByNameAndLastName(String name, String lastName);
+
+}

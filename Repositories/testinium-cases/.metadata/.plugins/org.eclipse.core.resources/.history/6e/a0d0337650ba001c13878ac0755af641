@@ -1,0 +1,13 @@
+/**
+ * 
+ */
+package com.testinium.dto.response;
+
+/**
+ * @author Remzi ŞAHBAZ
+ *
+ */
+public class AllStudentResponse {
+
+	private 
+}

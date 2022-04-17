@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.sahabt.admincrud.config;
+
+/**
+ * @author sahabt
+ *
+ */
+public class UserResponse {
+
+}

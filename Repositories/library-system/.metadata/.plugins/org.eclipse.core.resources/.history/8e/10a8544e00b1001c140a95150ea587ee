@@ -1,0 +1,9 @@
+package com.sahabt.kos.business;
+
+import com.sahabt.kos.repository.UserRepository;
+
+public class StandardKosUserApplication {
+
+	private UserRepository userRepository;
+	private Userev userRepository;
+}

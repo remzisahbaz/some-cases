@@ -1,0 +1,13 @@
+diff --git a/kos-book-crud-microservice/src/main/java/com/sahabt/kosbookcrud/adapter/UserRepositorySpringDataMongoAdapter.java b/kos-book-crud-microservice/src/main/java/com/sahabt/kosbookcrud/adapter/UserRepositorySpringDataMongoAdapter.java
+index 1d4373a..8f07e79 100644
+--- a/kos-book-crud-microservice/src/main/java/com/sahabt/kosbookcrud/adapter/UserRepositorySpringDataMongoAdapter.java
++++ b/kos-book-crud-microservice/src/main/java/com/sahabt/kosbookcrud/adapter/UserRepositorySpringDataMongoAdapter.java
+@@ -27,7 +27,7 @@
+ 
+ 	@Override
+ 	public boolean exists(Isbn isbn) {
+-		// TODO Auto-generated method stub
++		//bookDocument.x;
+ 		return false;
+ 	}
+ 

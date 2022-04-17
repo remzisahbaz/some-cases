@@ -1,0 +1,56 @@
+/**
+ * 
+ */
+package com.testinium.config;
+
+import org.modelmapper.Converter;
+import org.modelmapper.ModelMapper;
+import org.springframework.context.annotation.Bean;
+
+import com.testinium.dto.request.CourseRegistrationRequest;
+import com.testinium.dto.request.ResultsOfExamRequest;
+import com.testinium.entity.CourseRegistration;
+import com.testinium.entity.ResultsOfExam;
+
+
+
+/**
+ * @author sahabt
+ *
+ */
+public class ModelMaperConfig {
+
+	public static final Converter<CourseRegistrationRequest,CourseRegistration> CourseRegistrationRequest_To_Convert_CourseRegistration =
+			(context)->{
+				var request= context.getSource();
+				var coursereg= context.getDestination();
+				
+			//	coursereg.setCourse(request.getCourseCode());
+				
+				return null;
+			};
+	
+			
+	public static final Converter<ResultsOfExamRequest,ResultsOfExam> ResultOfExamRequest_To_Convert_ResultOfexam =
+	(context)->{
+		var request= context.getSource();
+		var result= context.getDestination();
+		
+		result.setAvarage(result.getAvarage());
+		result.setFirstExamResult(request.getFirstExamResult());
+		result.setSecondExamResult(request.getSecondExamResult());
+		
+		
+		return result;
+	};
+	@Bean
+	public ModelMapper mapper() {
+		
+		var modelm= new ModelMapper();
+	//	modelm.addConverter(CourseRegistrationRequest_To_Convert_CourseRegistration,CourseRegistrationRequest.class, CourseRegistration.class);
+		modelm.addConverter(ResultOfExamRequest_To_Convert_ResultOfexam,ResultsOfExamRequest.class, ResultsOfExam.class);
+		modelm.addConverter(ResultOfExam_To_Convert_ResultOfexamresponse,ResultOfExam.class, ResultOfexamresponse.class);
+	
+		return modelm;
+	}
+}

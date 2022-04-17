@@ -1,0 +1,9 @@
+package com.sahabt.kosbookcrud.repository;
+
+import org.springframework.data.mongodb.repository.cdi.MongoRepositoryBean;
+
+import com.sahabt.kosbookcrud.document.BookDocument;
+
+public class BookDocumentRepository extends MongoRepositoryBean<BookDocument,String>{
+
+}

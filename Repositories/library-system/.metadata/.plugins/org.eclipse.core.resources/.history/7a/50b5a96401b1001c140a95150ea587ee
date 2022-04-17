@@ -1,0 +1,10 @@
+package com.sahabt.kos.business;
+
+import com.sahabt.kos.infrastructure.UserPublisher;
+import com.sahabt.kos.repository.UserRepository;
+
+public class StandardKosUserApplication extends UserApplication{
+
+	private UserRepository userRepository;
+	private UserPublisher userPublisher;
+}

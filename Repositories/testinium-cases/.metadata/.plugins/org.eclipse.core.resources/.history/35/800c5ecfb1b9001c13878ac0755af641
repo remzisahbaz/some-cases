@@ -1,0 +1,133 @@
+/**
+ * 
+ */
+package com.testinium.dto.request;
+
+import java.util.Objects;
+
+import com.testinium.entity.Course;
+
+import lombok.Builder;
+import lombok.Data;
+
+/**
+ * @author Remzi ŞAHBAZ
+ *
+ */
+
+public class ResultsOfExamRequest {
+	
+	private String schoolNo;
+	private String courseCode;
+
+	private String firstExamResult;
+	private String secondExamResult;
+	private double avarage;
+	private boolean stateOfResult;
+	
+	
+	/**
+	 * 
+	 */
+	public ResultsOfExamRequest() {
+	}
+	/**
+	 * @return the schoolNo
+	 */
+	public String getSchoolNo() {
+		return schoolNo;
+	}
+	/**
+	 * @param schoolNo the schoolNo to set
+	 */
+	public void setSchoolNo(String schoolNo) {
+		this.schoolNo = schoolNo;
+	}
+	/**
+	 * @return the courseNo
+	 */
+	public String getCourseNo() {
+		return courseCode;
+	}
+	/**
+	 * @param courseNo the courseNo to set
+	 */
+	public void setCourseNo(String courseNo) {
+		this.courseCode = courseNo;
+	}
+	/**
+	 * @return the firstExamResult
+	 */
+	public String getFirstExamResult() {
+		return firstExamResult;
+	}
+	/**
+	 * @param firstExamResult the firstExamResult to set
+	 */
+	public void setFirstExamResult(String firstExamResult) {
+		this.firstExamResult = firstExamResult;
+	}
+	/**
+	 * @return the secondExamResult
+	 */
+	public String getSecondExamResult() {
+		return secondExamResult;
+	}
+	/**
+	 * @param secondExamResult the secondExamResult to set
+	 */
+	public void setSecondExamResult(String secondExamResult) {
+		this.secondExamResult = secondExamResult;
+	}
+	/**
+	 * @return the avarage
+	 */
+	public double getAvarage() {
+		return avarage;
+	}
+	/**
+	 * @param avarage the avarage to set
+	 */
+	public void setAvarage(double avarage) {
+		this.avarage = avarage;
+	}
+	/**
+	 * @return the stateOfResult
+	 */
+	public boolean isStateOfResult() {
+		return stateOfResult;
+	}
+	/**
+	 * @param stateOfResult the stateOfResult to set
+	 */
+	public void setStateOfResult(boolean stateOfResult) {
+		this.stateOfResult = stateOfResult;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(courseCode, schoolNo);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ResultsOfExamRequest other = (ResultsOfExamRequest) obj;
+		return Objects.equals(courseCode, other.courseCode) && Objects.equals(schoolNo, other.schoolNo);
+	}
+	@Override
+	public String toString() {
+		return "ResultsOfExamRequest [schoolNo=" + schoolNo + ", courseNo=" + courseCode + ", firstExamResult="
+				+ firstExamResult + ", secondExamResult=" + secondExamResult + ", avarage=" + avarage
+				+ ", stateOfResult=" + stateOfResult + "]";
+	}
+	
+	
+	
+	
+	
+	
+}

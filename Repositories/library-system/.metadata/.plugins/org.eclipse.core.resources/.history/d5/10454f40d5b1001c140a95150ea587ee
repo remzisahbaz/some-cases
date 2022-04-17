@@ -1,0 +1,5 @@
+package com.sahabt.kosbookcrud.service;
+
+public class BookService {
+
+}

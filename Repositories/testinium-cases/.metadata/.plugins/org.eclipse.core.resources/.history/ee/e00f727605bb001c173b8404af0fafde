@@ -1,0 +1,26 @@
+/**
+ * 
+ */
+package com.demiroren.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.demiroren.entity.Contact;
+import com.demiroren.entity.Phone;
+
+/**
+ * @author Remzi ŞAHBAZ
+ *
+ */
+@Repository
+public interface ContactRepository extends JpaRepository<Contact, Long>
+{
+
+	Optional<Contact> findByNameAndLastname(String name, String lastName);
+
+	Optional<Contact> findByPhoneContaining(String phone);
+
+}

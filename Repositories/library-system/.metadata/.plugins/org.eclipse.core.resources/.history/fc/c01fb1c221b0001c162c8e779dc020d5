@@ -1,0 +1,5 @@
+package com.sahabt.admincrud.controller;
+
+public class UserController {
+
+}

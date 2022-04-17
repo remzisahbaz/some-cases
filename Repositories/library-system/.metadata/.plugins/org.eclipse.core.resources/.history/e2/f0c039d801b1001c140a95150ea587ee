@@ -1,0 +1,36 @@
+package com.sahabt.kos.business;
+
+import java.util.Optional;
+
+import com.sahabt.kos.application.UserApplication;
+import com.sahabt.kos.domain.book.Book;
+import com.sahabt.kos.domain.book.Isbn;
+import com.sahabt.kos.infrastructure.UserPublisher;
+import com.sahabt.kos.repository.UserRepository;
+
+public class StandardKosUserApplication implements UserApplication{
+
+	private UserRepository userRepository;
+	private UserPublisher userPublisher;
+	
+	@Override
+	public Optional<Book> hireBook(Book book) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Optional<Book> fireBook(Isbn isbn) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Optional<Book> editBook(Book book) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Optional<Book> getInformationBook(Isbn isbn) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

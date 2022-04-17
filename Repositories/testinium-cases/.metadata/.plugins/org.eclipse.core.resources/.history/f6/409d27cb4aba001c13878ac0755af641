@@ -1,0 +1,26 @@
+/**
+ * 
+ */
+package com.testinium.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.testinium.entity.CourseRegistration;
+
+/**
+ * @author Remzi ŞAHBAZ
+ *
+ */
+@Repository
+public interface CourseRegistrationRepository extends JpaRepository<CourseRegistration, Long> {
+
+	Optional<CourseRegistration> findBySchoolNoAndCoursecodeAndYearCode(String schoolNo, String courseCode, String yearCode);
+
+	Optional<CourseRegistration> findBySchoolNoOrCourseCodeOrYearCode(String schoolNo, String courseCode, String yearCode);
+
+}
+
+
